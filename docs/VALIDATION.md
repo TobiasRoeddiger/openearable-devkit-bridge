@@ -1,5 +1,13 @@
 # Validation and limitations
 
+## Fresh flash and hardware retest — 2026-09-29
+
+The public repository firmware was flashed onto the ESP32 and standard nRF5340
+DK and exercised with both USB-powered earables. Pairing, two-ear LC3, SBC,
+HFP and both BLE sensor proxies worked, but the strict audio-integrity test
+failed. See [the measured retest](HARDWARE_RETEST.md) for the counters and two
+adapter fixes made during verification. Earable firmware was unchanged.
+
 ## Physical prototype results before this repository snapshot
 
 These observations were made on the original devkit assembly, not on a new

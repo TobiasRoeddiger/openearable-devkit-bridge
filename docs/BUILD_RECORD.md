@@ -1,4 +1,6 @@
-# Fresh build record
+# Build records
+
+## Initial repository snapshot
 
 Date: 2026-09-29. Host: macOS arm64. Both firmwares were rebuilt in fresh build
 directories inside this public devkit repository, using the existing pinned SDK
@@ -32,3 +34,18 @@ generated flash order is `hci_ipc` followed by `nrf`.
 
 These checks verify compilation and host-side processing only. See
 VALIDATION.md for the separate physical-prototype measurements and limits.
+
+## Hardware-retest build
+
+The subsequent [hardware retest](HARDWARE_RETEST.md) added two DK changes:
+2,048-byte crypto heap and settings initialization before SPI. NCS sysbuild
+passed, and the DK application was programmed and verified after the final
+change. The network-core and ESP images are unchanged from the hashes above.
+Host identity and microphone tests passed again with sanitizers.
+
+- DK application: 403,224 bytes flash / 355,424 bytes RAM (77.48%).
+- Final `build/bridge-nrf/merged.hex` SHA-256:
+  `9e2c1f6de5a48b8ec92736bf4f0175431bdfb4a4a7792555d5e5d65e3f2141d7`.
+
+The earables were not flashed. Physical testing found unresolved integrity
+failures; a successful build is not an audio-quality certification.

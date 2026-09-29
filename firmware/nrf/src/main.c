@@ -26,8 +26,10 @@ int main(void) {
     gpio_pin_configure(gpio0, 24, GPIO_INPUT | GPIO_PULL_UP);
     printk("OpenEarable adapter boot\n");
     boot_id = sys_rand32_get();
-    link_init();
     earables_init();
+    /* Load the saved reset epoch before publishing any SPI status. Otherwise
+     * the ESP sees a transient zero at boot and clears its host bonds. */
+    link_init();
     printk("PCM init=%d\n", pcm_init());
     int64_t combo = 0;
     bool combo_fired = false;
