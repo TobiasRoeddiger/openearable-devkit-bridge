@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: Apache-2.0
+mainmenu "OpenEarable adapter"
+
+config ADAPTER_SDC_ISO_CLOCK
+    bool
+    default y
+    select BT_LL_SOFTDEVICE_HEADERS_INCLUDE
+    help
+      The network core runs SoftDevice Controller. Use its HCI timestamp
+      command to align stereo SDUs even though the host runs on the app core.
+
+source "Kconfig.zephyr"

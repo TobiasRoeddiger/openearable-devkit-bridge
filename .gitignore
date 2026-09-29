@@ -1,0 +1,15 @@
+/build/
+/results/
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+/firmware/esp32-idf/managed_components/
+/firmware/esp32-idf/sdkconfig
+/firmware/esp32-idf/sdkconfig.old
+*.log
+*.wav
+*.pcm
+/backups/
+.env
+.env.*

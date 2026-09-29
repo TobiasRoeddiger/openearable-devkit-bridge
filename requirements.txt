@@ -1,0 +1,2 @@
+pyserial==3.5
+pylink-square==1.7.0
